@@ -2,7 +2,6 @@ import subprocess
 
 def configure_vpn(config):
     try:
-        # VPN設定ファイルを準備
         with open("/etc/wireguard/wg0.conf", "w") as f:
             f.write(config)
         print("VPN設定を更新しました。")
