@@ -1,4 +1,8 @@
 {
-    "vpn_config": "[Interface]\nPrivateKey = <YourPrivateKey>\nAddress = 10.0.0.1/24\nListenPort = 51820\n[Peer]\nPublicKey = <PeerPublicKey>\nEndpoint = <VPNEndpoint>:51820\nAllowedIPs = 0.0.0.0/0",
-    "proxy_config": "http_port 3128\nacl localnet src 10.0.0.0/8\nhttp_access allow localnet\nhttp_access deny all"
+    "vpn_config": "[Interface]\nPrivateKey=...\nAddress=10.0.0.1/24\n...",
+    "proxy_config": "http_port 3128\nacl localnet src 10.0.0.0/8\n...",
+    "firewall_rules": [
+        ["-A", "INPUT", "-p", "tcp", "--dport", "22", "-j", "ACCEPT"],
+        ["-A", "INPUT", "-p", "tcp", "--dport", "80", "-j", "ACCEPT"]
+    ]
 }
