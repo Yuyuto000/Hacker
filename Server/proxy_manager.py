@@ -2,7 +2,6 @@ import subprocess
 
 def configure_proxy(config):
     try:
-        # プロキシ設定ファイルを準備
         with open("/etc/squid/squid.conf", "w") as f:
             f.write(config)
         print("プロキシ設定を更新しました。")
